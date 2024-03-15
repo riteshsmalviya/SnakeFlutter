@@ -27,24 +27,6 @@ class ControlPanel extends StatelessWidget {
             onSwipe?.call(Direction.left);
           }
         },
-        child: Container(
-          height: 150.0,
-          color: Colors.transparent, // Make the swipe gesture area transparent
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: Container(), // This is the center column, no need for specific controls here
-              ),
-              Expanded(
-                child: Container(),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

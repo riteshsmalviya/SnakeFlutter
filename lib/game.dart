@@ -5,11 +5,13 @@ import 'control_panel.dart';
 import 'direction.dart';
 import 'direction_type.dart';
 import 'piece.dart';
+import 'package:flutter/services.dart';
 
 class GamePage extends StatefulWidget {
   @override
   _GamePageState createState() => _GamePageState();
 }
+
 class _GamePageState extends State<GamePage> {
   List<Offset> positions = [];
   int length = 5;
@@ -71,7 +73,8 @@ class _GamePageState extends State<GamePage> {
   Offset getRandomPositionWithinRange() {
     int posX = Random().nextInt(upperBoundX) + lowerBoundX;
     int posY = Random().nextInt(upperBoundY) + lowerBoundY;
-    return Offset(roundToNearestTens(posX).toDouble(), roundToNearestTens(posY).toDouble());
+    return Offset(roundToNearestTens(posX).toDouble(),
+        roundToNearestTens(posY).toDouble());
   }
 
   bool detectCollision(Offset position) {
@@ -107,7 +110,9 @@ class _GamePageState extends State<GamePage> {
             style: TextStyle(color: Colors.white),
           ),
           content: Text(
-            "Your game is over but you played well. Your score is " + score.toString() + ".",
+            "Your game is over but you played well. Your score is " +
+                score.toString() +
+                ".",
             style: TextStyle(color: Colors.white),
           ),
           actions: [
@@ -118,7 +123,8 @@ class _GamePageState extends State<GamePage> {
               },
               child: Text(
                 "Restart",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -132,7 +138,8 @@ class _GamePageState extends State<GamePage> {
 
     if (detectCollision(position) == true) {
       if (timer != null && timer!.isActive) timer!.cancel();
-      await Future.delayed(Duration(milliseconds: 500), () => showGameOverDialog());
+      await Future.delayed(
+          Duration(milliseconds: 500), () => showGameOverDialog());
       return position;
     }
 
@@ -158,7 +165,6 @@ class _GamePageState extends State<GamePage> {
     }
 
     if (positions.isNotEmpty && foodPosition == positions[0]) {
-
       length++;
       speed = speed + 0.25;
       score = score + 5;
@@ -179,7 +185,6 @@ class _GamePageState extends State<GamePage> {
   List<Piece> getPieces() {
     final pieces = <Piece>[];
     draw();
-
 
     drawFood();
 
@@ -221,7 +226,8 @@ class _GamePageState extends State<GamePage> {
   void changeSpeed() {
     if (timer != null && timer!.isActive) timer!.cancel();
 
-    timer = Timer.periodic(Duration(milliseconds: (200 ~/ speed).toInt()), (timer) {
+    timer =
+        Timer.periodic(Duration(milliseconds: (200 ~/ speed).toInt()), (timer) {
       setState(() {});
     });
   }
