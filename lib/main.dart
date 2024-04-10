@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import "package:flutter/services.dart";
-import 'game.dart';
+import 'package:flutter_snake_game/roomLogic/main_menu_screen.dart';
+import 'package:flutter_snake_game/roomLogic/create_room_screen.dart';
+import 'package:flutter_snake_game/roomLogic/join_room_screen.dart';
+import 'package:flutter_snake_game/gameLogic/game.dart';
+import 'package:flutter_snake_game/utils/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,11 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Snake',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: bgColor,
       ),
-      home: GamePage(),
+      routes: {
+        MainMenuScreen.routeName: (context) => const MainMenuScreen(),
+        JoinRoomScreen.routeName: (context) => const JoinRoomScreen(),
+        CreateRoomScreen.routeName: (context) => const CreateRoomScreen(),
+        GamePage.routeName: (context) => GamePage(),
+      },
+      initialRoute: MainMenuScreen.routeName,
     );
   }
 }

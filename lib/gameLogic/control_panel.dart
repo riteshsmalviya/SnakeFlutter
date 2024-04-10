@@ -33,13 +33,17 @@ class ControlPanel extends StatelessWidget {
   }
 
   void _handleKeyEvent(RawKeyEvent event) {
-    if (event.logicalKey == LogicalKeyboardKey.keyW) {
+    if (event.logicalKey == LogicalKeyboardKey.keyW ||
+        event.logicalKey == LogicalKeyboardKey.arrowUp) {
       onSwipe?.call(Direction.up);
-    } else if (event.logicalKey == LogicalKeyboardKey.keyA) {
+    } else if (event.logicalKey == LogicalKeyboardKey.keyA ||
+        event.logicalKey == LogicalKeyboardKey.arrowLeft) {
       onSwipe?.call(Direction.left);
-    } else if (event.logicalKey == LogicalKeyboardKey.keyS) {
+    } else if (event.logicalKey == LogicalKeyboardKey.keyS ||
+        event.logicalKey == LogicalKeyboardKey.arrowDown) {
       onSwipe?.call(Direction.down);
-    } else if (event.logicalKey == LogicalKeyboardKey.keyD) {
+    } else if (event.logicalKey == LogicalKeyboardKey.keyD ||
+        event.logicalKey == LogicalKeyboardKey.arrowRight) {
       onSwipe?.call(Direction.right);
     }
   }

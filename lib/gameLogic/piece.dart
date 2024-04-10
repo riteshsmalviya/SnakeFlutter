@@ -11,7 +11,7 @@ class Piece extends StatefulWidget {
     required this.posX,
     required this.posY,
     required this.size,
-    this.color = const Color(0XFFBF3100),
+    this.color = Colors.white,
     this.isAnimated = false,
   }) : super(key: key);
 
@@ -60,12 +60,9 @@ class _PieceState extends State<Piece> with SingleTickerProviderStateMixin {
           height: widget.size.toDouble(),
           decoration: BoxDecoration(
             color: widget.color,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                widget.size.toDouble(),
-              ),
-            ),
-            border: Border.all(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(6),
+            border:
+                Border.all(color: Color.fromARGB(255, 0, 0, 0), width: 0.50),
           ),
         ),
       ),

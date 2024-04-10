@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'control_panel.dart';
 import 'direction.dart';
 import 'direction_type.dart';
-import 'piece.dart';
-import 'package:flutter/services.dart';
+import '/gameLogic/piece.dart';
 
 class GamePage extends StatefulWidget {
+  static String routeName = '/game-page';
   @override
   _GamePageState createState() => _GamePageState();
 }
@@ -177,7 +177,7 @@ class _GamePageState extends State<GamePage> {
       posX: foodPosition!.dx.toInt(),
       posY: foodPosition!.dy.toInt(),
       size: step,
-      color: Color(0XFF8EA604),
+      color: Color.fromARGB(255, 255, 242, 0),
       isAnimated: true,
     );
   }
@@ -198,7 +198,7 @@ class _GamePageState extends State<GamePage> {
           posX: positions[i].dx.toInt(),
           posY: positions[i].dy.toInt(),
           size: step,
-          color: Colors.red,
+          color: Color.fromARGB(255, 255, 255, 255),
         ),
       );
     }
@@ -238,7 +238,7 @@ class _GamePageState extends State<GamePage> {
       right: 40.0,
       child: Text(
         "Score: " + score.toString(),
-        style: TextStyle(fontSize: 24.0),
+        style: TextStyle(fontSize: 24.0, color: Colors.white),
       ),
     );
   }
@@ -262,7 +262,7 @@ class _GamePageState extends State<GamePage> {
         height: (upperBoundY - lowerBoundY + step).toDouble(),
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black.withOpacity(0.2),
+            color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
             style: BorderStyle.solid,
             width: 1.0,
           ),
@@ -289,7 +289,7 @@ class _GamePageState extends State<GamePage> {
 
     return Scaffold(
       body: Container(
-        color: Color(0XFFF5BB00),
+        color: Color.fromARGB(255, 0, 0, 0),
         child: Stack(
           children: [
             getPlayAreaBorder(),
