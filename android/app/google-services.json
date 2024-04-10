@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "916831121131",
-    "project_id": "snakegame-bfebc",
-    "storage_bucket": "snakegame-bfebc.appspot.com"
+    "project_number": "514040233101",
+    "project_id": "snakegame-4a476",
+    "storage_bucket": "snakegame-4a476.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:916831121131:android:66d5175c834baafcd118ae",
+        "mobilesdk_app_id": "1:514040233101:android:d80a770285cd34e89176c4",
         "android_client_info": {
           "package_name": "com.example.starter"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDgo_nIm1DcAC0BAItoLxlcVEhJz4WM3EI"
+          "current_key": "AIzaSyACWYNrtG-gLA0jUGUiAFquLwdSYVDKV04"
         }
       ],
       "services": {

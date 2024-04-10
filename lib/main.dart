@@ -4,8 +4,13 @@ import 'package:flutter_snake_game/roomLogic/create_room_screen.dart';
 import 'package:flutter_snake_game/roomLogic/join_room_screen.dart';
 import 'package:flutter_snake_game/gameLogic/game.dart';
 import 'package:flutter_snake_game/utils/colors.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_snake_game/firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
